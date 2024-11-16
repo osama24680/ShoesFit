@@ -1,7 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import VideoModal from '../VideoModal';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function Hero({
   title,
@@ -11,8 +11,8 @@ export default function Hero({
   videoBtnText,
   videoUrl,
   infoList,
-  btnText,
-  btnUrl,
+  // btnText,
+  // btnUrl,
 }) {
   return (
     <section className="cs_hero cs_style_1">

@@ -11,11 +11,11 @@ import ModelDetails from "./components/Pages/ModelDetails";
 import Contact from "./components/Pages/Contact";
 import ErrorPage from "./components/Pages/ErrorPage";
 
-import Doctors from "./components/Pages/Doctors";
-import Appointments from "./components/Pages/Appointments";
-import DoctorDetails from "./components/Pages/DoctorDetails";
-import PricingPlan from "./components/Pages/PricingPlan";
-import Timetable from "./components/Pages/Timetable";
+// import Doctors from "./components/Pages/Doctors";
+// import Appointments from "./components/Pages/Appointments";
+// import DoctorDetails from "./components/Pages/DoctorDetails";
+// import PricingPlan from "./components/Pages/PricingPlan";
+// import Timetable from "./components/Pages/Timetable";
 
 
 function App() {

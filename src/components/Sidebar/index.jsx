@@ -1,21 +1,21 @@
 import React from "react";
-import SideMenuWidget from "../Widget/SideMenuWidget";
+// import SideMenuWidget from "../Widget/SideMenuWidget";
 import RecentPostWidget from "../Widget/RecentPostWidget";
 import NewsletterStyle5 from "../Widget/NewsletterStyle5";
-const categoryData = [
-  {
-    title: "Health Tips and Tricks",
-    url: "/",
-  },
-  {
-    title: "Trends and Analysis",
-    url: "/",
-  },
-  {
-    title: "Time Management",
-    url: "/",
-  },
-];
+// const categoryData = [
+//   {
+//     title: "Health Tips and Tricks",
+//     url: "/",
+//   },
+//   {
+//     title: "Trends and Analysis",
+//     url: "/",
+//   },
+//   {
+//     title: "Time Management",
+//     url: "/",
+//   },
+// ];
 const recentPostData = [
   {
     title: `A Parent's Guide to Childhood Vaccinations: What You Need to Know`,
