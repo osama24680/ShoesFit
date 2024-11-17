@@ -8,7 +8,7 @@ import { BlogDetails } from "./Data/BlogDetails.js";
 
 export const shoesStore = createContext(0);
 export const ShoesProvider = (props) => {
-  let age = 23;
+  
   const form_BlgDetails = useRef();
   const form_Contact = useRef();
 
@@ -54,7 +54,6 @@ export const ShoesProvider = (props) => {
   };
 
   let values = {
-    age,
     HomeData,
     BlogDetails,
     AboutData,

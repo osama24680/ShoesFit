@@ -6,7 +6,7 @@ import About from "./components/Pages/About";
 import Blog from "./components/Pages/Blog";
 import BlogDetails from "./components/Pages/BlogDetails";
 import Gallery from "./components/Pages/Gallery";
-import Models from "./components/Pages/Models";
+import Models from "./components/Pages/AIModels";
 import ModelDetails from "./components/Pages/ModelDetails";
 import Contact from "./components/Pages/Contact";
 import ErrorPage from "./components/Pages/ErrorPage";
@@ -35,6 +35,7 @@ function App() {
         <Route path="models" element={<Models />} />
         <Route path="models/:modelId" element={<ModelDetails />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="models" element={<Models />} />
 
         {/* <Route path="doctors" element={<Doctors />} /> */}
         {/* <Route path="doctors/:doctorId" element={<DoctorDetails />} /> */}

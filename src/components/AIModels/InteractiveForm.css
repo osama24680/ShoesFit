@@ -1,0 +1,51 @@
+.interactive-form {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.interactive-form h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.interactive-form form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.interactive-form label {
+  font-size: 1rem;
+  color: #555;
+}
+
+.interactive-form input,
+.interactive-form select,
+.interactive-form button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.interactive-form button {
+  background-color: #0056b3;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.interactive-form button:hover {
+  background-color: #003f8a;
+}
+
+.output {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
