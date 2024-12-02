@@ -6,14 +6,20 @@ const ModelsSection = () => {
     {
       title: "Calories Estimation Model",
       description:
-        "Estimate calories burned based on age, weight, activity type, and duration.",
-      image: "/images/calories-model.webp",
+        "Estimate calories burned based on age, duration, heart rate, and temperature",
+      image: "/images/models/Calories_model_BG.jpg",
     },
     {
       title: "Stress Level Prediction Model",
       description:
         "Predict stress levels based on heart rate, activity level, and sleep hours.",
-      image: "/images/stress-model.webp",
+      image: "/images/models/Stress_model_BG.jpg",
+    },
+    {
+      title: "Parkinson's Disease Prediction Model",
+      description:
+        "Predict Parkinson's disease risk based on movement patterns and tremor analysis.",
+      image: "/images/models/Parkinson_model_BG.jpg",
     },
   ];
 

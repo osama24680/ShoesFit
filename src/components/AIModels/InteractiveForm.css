@@ -1,51 +1,109 @@
 .interactive-form {
-  padding: 50px 20px;
-  background-color: #f9f9f9;
+  padding: 50px 30px;
+  background-color: #ffffff; /* Matches the clean white design */
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Adds a more modern shadow */
+  max-width: 800px;
+  margin: 50px auto;
+  font-family: "Arial", sans-serif;
+  border: 1px solid #e5e5e5;
+}
+
+.form-group.select-only {
+  grid-column: span 2; /* Ensures it spans full width in a grid */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group.select-only select {
+  width: 100%; /* Makes the select box take the full width */
 }
 
 .interactive-form h2 {
-  font-size: 2rem;
-  color: #333;
+  font-size: 2.5rem;
+  color: #003f8a; /* A deeper blue for consistency */
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-.interactive-form form {
-  max-width: 600px;
-  margin: 0 auto;
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.form-group.full-width {
+  grid-column: span 2; /* Forces the last item to take the full width */
+}
+
+.form-group {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
-.interactive-form label {
+.form-group label {
+  font-size: 1.1rem;
+  color: #555; /* Softer gray for labels */
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
   font-size: 1rem;
-  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+  background-color: #f8f9fb; /* Light background for inputs */
 }
 
-.interactive-form input,
-.interactive-form select,
-.interactive-form button {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #003f8a;
 }
 
-.interactive-form button {
-  background-color: #0056b3;
-  color: white;
-  cursor: pointer;
-  border: none;
-}
 
-.interactive-form button:hover {
-  background-color: #003f8a;
-}
-
-.output {
+.submit-container {
+  grid-column: span 2; /* Ensures it spans full width in the grid layout */
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
+}
+
+.submit-btn {
+  width: 100%; /* Makes the button take the full width */
+  max-width: 400px; /* Optional: to limit the width on larger screens */
+  padding: 15px 20px;
   font-size: 1.2rem;
-  color: #333;
+  color: #fff;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #003f8a;
+  transform: scale(1.05);
+}
+
+
+.output-container {
+  margin-top: 30px;
   text-align: center;
+}
+
+.output-box {
+  display: inline-block;
+  padding: 10px;
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.4rem;
+  color: #0056b3;
+  animation: fadeIn 0.5s ease-in-out;
 }

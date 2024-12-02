@@ -61,7 +61,7 @@ export default function Header({ logoSrc, variant }) {
                     <li>
                       <Link to="/models">Models</Link>
                     </li>
-                    <li className="menu-item-has-children">
+                    {/* <li className="menu-item-has-children">
                       <Link to="/">Pages</Link>
                       <DropDown>
                         <ul>
@@ -93,7 +93,7 @@ export default function Header({ logoSrc, variant }) {
                           </li>
                         </ul>
                       </DropDown>
-                    </li>
+                    </li> */}
                     <li>
                       <Link to="/contact">Contact</Link>
                     </li>
