@@ -1,0 +1,92 @@
+.dashboard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: rgba(180, 240, 240, 0.349);
+  font-family: "Poppins", sans-serif;
+  padding: 4rem 0;
+}
+
+.chart-item {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  text-align: center;
+  width: 45%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chart-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.chart {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.digital-reading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #0077b6;
+
+}
+
+h3 {
+  color: #0077b6;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.recharts-surface {
+  border-radius: 10px;
+}
+
+.recharts-cartesian-grid-line {
+  stroke: #ccc;
+  stroke-dasharray: 3 3;
+}
+
+.recharts-tooltip-wrapper {
+  background-color: #56a6d0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+  .chart-item {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-item {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .chart-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

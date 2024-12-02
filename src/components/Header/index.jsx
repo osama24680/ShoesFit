@@ -60,6 +60,9 @@ export default function Header({ logoSrc, variant }) {
                     <li>
                       <Link to="/models">Models</Link>
                     </li>
+                    <li>
+                      <Link to="/dashboard">Dashboard</Link>
+                    </li>
                     {/* <li className="menu-item-has-children">
                       <Link to="/">Pages</Link>
                       <DropDown>
