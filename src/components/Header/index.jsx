@@ -63,42 +63,14 @@ export default function Header({ logoSrc, variant }) {
                     <li>
                       <Link to="/dashboard">Dashboard</Link>
                     </li>
-                    {/* <li className="menu-item-has-children">
-                      <Link to="/">Pages</Link>
-                      <DropDown>
-                        <ul>
-                          <li>
-                            <Link to="/appointments">Appointments</Link>
-                          </li>
-
-                          <li>
-                            <Link to="/departments/department-details">
-                              Department Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/doctors">Doctors</Link>
-                          </li>
-                          <li>
-                            <Link to="doctors/doctor-details">
-                              Doctor Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/pricing-plan">Pricing Plan</Link>
-                          </li>
-                          <li>
-                            <Link to="/doctors">Find Doctor</Link>
-                          </li>
-                          <li>
-                            <Link to="/timetable">Timetable</Link>
-                          </li>
-                        </ul>
-                      </DropDown>
-                    </li> */}
+                  
                     <li>
                       <Link to="/contact">Contact</Link>
                     </li>
+                    <li>
+                      <Link to="/register">Register</Link>
+                    </li>
+                   
                   </ul>
                   <span
                     className={

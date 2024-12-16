@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./InteractiveForm.css";
 
+
+
 const InteractiveForm = () => {
   const [selectedModel, setSelectedModel] = useState("calories");
 
@@ -24,8 +26,14 @@ const InteractiveForm = () => {
   const [Speed_01_msec, setSpeed_01_msec] = useState("");
   const [Speed_10, setSpeed_10] = useState("");
 
+  const [scalerAge, setScalerAge] = useState("");
+  const [scaler_sleep_duration, setScaler_Sleep_duration] = useState("");
+  const [scaler_heart_rate, setScaler_heart_rate] = useState("");
+  const [scaler_daily_steps, setScaler_daily_steps] = useState("");
+
   const [prediction, setPrediction] = useState(null);
 
+  const SubjnumConstant = 5;
   const handlePredict = async () => {
     if (selectedModel === "calories") {
       console.log("osama => calories");
@@ -67,7 +75,7 @@ const InteractiveForm = () => {
         const response = await axios.post(
           "http://127.0.0.1:5000/predictParkinson",
           {
-            Subjnum: Number(Subjnum),
+            Subjnum: Number(SubjnumConstant),
             Age: Number(Age),
             Height_meters: Number(Height_meters),
             Weight_kg: Number(Weight_kg),
@@ -80,6 +88,22 @@ const InteractiveForm = () => {
         );
         setPrediction(response.data.parkinson);
         console.log(response.data);
+      } catch (error) {
+        console.error("Prediction Error:", error);
+      }
+    } else if (selectedModel === "scaler") {
+      try {
+        const response = await axios.post(
+          "http://127.0.0.1:5000/predictScaler",
+          {
+            age: Number(scalerAge),
+            sleep_duration: Number(scaler_sleep_duration),
+            heart_rate: Number(scaler_heart_rate),
+            daily_steps: Number(scaler_daily_steps),
+          }
+        );
+        setPrediction(response.data.scaler);
+        console.log(response.data.scaler[0]);
       } catch (error) {
         console.error("Prediction Error:", error);
       }
@@ -146,11 +170,11 @@ const InteractiveForm = () => {
       return (
         <>
           <div className="form-group ">
-            <label>Humidity (%):</label>
+            <label>Sweat (%):</label>
             <input
               type="number"
               name="humidity"
-              placeholder="Enter humidity"
+              placeholder="Enter sweat"
               value={Humidity}
               onChange={(e) => setHumidity(e.target.value)}
             />
@@ -180,16 +204,6 @@ const InteractiveForm = () => {
     } else if (selectedModel === "parkinson") {
       return (
         <>
-          <div className="form-group">
-            <label>Subjnum:</label>
-            <input
-              type="text"
-              name="Subjnum"
-              placeholder="Enter value of subjnum"
-              value={Subjnum}
-              onChange={(e) => setSubjnum(e.target.value)}
-            />
-          </div>
           <div className="form-group">
             <label>Age:</label>
             <input
@@ -261,7 +275,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Speed_01_msec:</label>
+            <label>Speed_10_msec:</label>
             <input
               type="text"
               name="Speed_10"
@@ -272,11 +286,63 @@ const InteractiveForm = () => {
           </div>
         </>
       );
+    } else if (selectedModel === "scaler") {
+      return (
+        <>
+          <div className="form-group">
+            <label>Age:</label>
+            <input
+              type="text"
+              name="age"
+              placeholder="Enter value of age"
+              value={scalerAge}
+              onChange={(e) => setScalerAge(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Sleep Duration (H):</label>
+            <input
+              type="text"
+              name="Sleep Duration (H):"
+              placeholder="Enter value of Height"
+              value={scaler_sleep_duration}
+              onChange={(e) => setScaler_Sleep_duration(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Heart Rate (BPS):</label>
+            <input
+              type="text"
+              name="Heart Rate (BPS):"
+              placeholder="Enter value of weight"
+              value={scaler_heart_rate}
+              onChange={(e) => setScaler_heart_rate(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Step Count:</label>
+            <input
+              type="text"
+              name="Step Count:"
+              placeholder="Enter value for C"
+              value={scaler_daily_steps}
+              onChange={(e) => setScaler_daily_steps(e.target.value)}
+            />
+          </div>
+        </>
+      );
     }
   };
 
   return (
     <section className="interactive-form">
+
+
+
+
+
+
+
       <h2>Test Our AI Models</h2>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group select-only">
@@ -288,6 +354,7 @@ const InteractiveForm = () => {
             <option value="calories">Calories Estimation</option>
             <option value="stress">Stress Level Prediction</option>
             <option value="parkinson">parkinson Disease Prediction</option>
+            <option value="scaler">Stress and Sleep Quality</option>
           </select>
         </div>
         {renderInputs()}
@@ -308,6 +375,12 @@ const InteractiveForm = () => {
             )}
             {selectedModel === "parkinson" && (
               <p>🧠 Predicted parkinson Disease Risk: {prediction}</p>
+            )}
+            {selectedModel === "scaler" && (
+              <>
+                <p>💤Quality of Sleep : {prediction[0][0]}</p>
+                <p>🧘Stress Level: {prediction[0][1]}</p>
+              </>
             )}
           </div>
         </div>

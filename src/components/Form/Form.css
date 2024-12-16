@@ -1,0 +1,116 @@
+/* General Page Styles */
+.login-register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #d0f0ff, #87cefa);
+  font-family: Arial, sans-serif;
+  margin-bottom: 10rem;
+  margin-top: 1rem;
+}
+
+/* Form Card */
+.form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 12rem;
+  margin-top: 3rem;
+}
+
+.form-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Buttons */
+.form-button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-button:hover {
+  background: #0056b3;
+}
+
+/* Toggle Button */
+.toggle-form {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.toggle-button:hover {
+  color: #0056b3;
+}
+
+.id-input {
+  border: 1px solid #28a745;
+}
+
+.id-input:focus {
+  border-color: #218838;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.form-error {
+  color: #dc3545; /* Red for errors */
+  font-size: 0.8rem;
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* General Form Message */
+.form-message {
+  color: #28a745; /* Green for success */
+  font-size: 0.9rem;
+  margin-top: 15px;
+  text-align: center;
+}

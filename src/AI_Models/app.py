@@ -10,6 +10,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 calories_model = pickle.load(open("Calories.pkl", "rb"))
 stress_model = pickle.load(open("stress.pkl", "rb"))
 parkinson_model = pickle.load(open("parkinson.pkl", "rb"))
+scaler_model = pickle.load(open("sleep_model.pkl", "rb"))
 
 
 @app.route("/predictCalories", methods=["POST"])
@@ -114,16 +115,48 @@ def predict_parkinson():
                 "Height_meters",
                 "Weight_kg",
                 "HoehnYahr",
-                'UPDRSM',
-                'TUAG',
-                'Speed_01_msec',
-                'Speed_10',
+                "UPDRSM",
+                "TUAG",
+                "Speed_01_msec",
+                "Speed_10",
             ],
         )
 
         prediction = parkinson_model.predict(input_features)
 
         return jsonify({"parkinson": int(round(prediction[0], 1))})
+
+    except Exception as e:
+        return jsonify({"error": f"Internal server error: {str(e)}"}), 500
+
+@app.route("/predictScaler", methods=["POST"])
+def predict_scaler():
+    try:
+        data = request.json
+
+        # Extract input data
+        age = data.get("age")
+        sleep_duration = data.get("sleep_duration")
+        heart_rate = data.get("heart_rate")
+        daily_steps = data.get("daily_steps")
+
+        # Validate inputs
+        if any(
+            value is None for value in [age, sleep_duration, heart_rate, daily_steps]
+        ):
+            return jsonify({"error": "Missing or invalid input values"}), 400
+
+        # Create input DataFrame
+        input_features = pd.DataFrame(
+            [[age, sleep_duration, heart_rate, daily_steps]],
+            columns=["age", "sleep_duration", "heart_rate", "daily_steps"],
+        )
+
+        # Make prediction using the scaler model
+        prediction = scaler_model.predict(input_features)
+
+        # Ensure response is JSON serializable
+        return jsonify({"scaler": prediction.tolist()})
 
     except Exception as e:
         return jsonify({"error": f"Internal server error: {str(e)}"}), 500

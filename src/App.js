@@ -10,13 +10,8 @@ import Models from "./components/Pages/AIModels";
 import ModelDetails from "./components/Pages/ModelDetails";
 import Dashboard from "./components/Pages/Dashboard";
 import Contact from "./components/Pages/Contact";
+import Register from "./components/Pages/Register.jsx";
 import ErrorPage from "./components/Pages/ErrorPage";
-
-// import Doctors from "./components/Pages/Doctors";
-// import Appointments from "./components/Pages/Appointments";
-// import DoctorDetails from "./components/Pages/DoctorDetails";
-// import PricingPlan from "./components/Pages/PricingPlan";
-// import Timetable from "./components/Pages/Timetable";
 
 
 function App() {
@@ -37,6 +32,7 @@ function App() {
         <Route path="models/:modelId" element={<ModelDetails />} />
         <Route path="models" element={<Models />} />
         <Route path="Dashboard" element={<Dashboard />} />
+        <Route path="register" element={<Register />} />
         <Route path="contact" element={<Contact />} />
 
         {/* <Route path="doctors" element={<Doctors />} /> */}
