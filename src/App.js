@@ -1,5 +1,5 @@
 // App.js
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
