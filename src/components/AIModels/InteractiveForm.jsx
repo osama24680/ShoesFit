@@ -16,7 +16,6 @@ const InteractiveForm = () => {
   const [Temperature_C, setTemperature_C] = useState("");
   const [Step_count, setStep_count] = useState("");
 
-  const [Subjnum, setSubjnum] = useState("");
   const [Age, setAge] = useState("");
   const [Height_meters, setHeight_meters] = useState("");
   const [Weight_kg, setWeight_kg] = useState("");
