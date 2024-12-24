@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+// Form.js
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Form.css";
+import { AuthContext } from "../../AuthContext";
 
 const From = () => {
+  const { login } = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
@@ -12,7 +16,7 @@ const From = () => {
     password: "",
   });
   const [errors, setErrors] = useState({});
-  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex =
@@ -22,7 +26,6 @@ const From = () => {
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
-    setMessage("");
     setFormData({ name: "", id: "", email: "", password: "" });
     setErrors({});
   };
@@ -49,10 +52,6 @@ const From = () => {
       ...prevErrors,
       [name]: error,
     }));
-
-    if (!error) {
-      setMessage("");
-    }
   };
 
   const handleSubmit = (e) => {
@@ -66,10 +65,10 @@ const From = () => {
       );
 
       if (user) {
-        setMessage("Login successful! Welcome back.");
-        toast.success("Login successful!");
+        login(user);
+        toast.success(`Login successful! Welcome, ${user.name}.`);
+        navigate("/dashboard"); // Redirect to dashboard
       } else {
-        setMessage("Invalid email or password.");
         toast.error("Invalid email or password.");
       }
     } else {
@@ -79,34 +78,28 @@ const From = () => {
         !formData.email ||
         !formData.password
       ) {
-        setMessage("All fields are required.");
         toast.error("All fields are required.");
         return;
       }
 
       if (Object.values(errors).some((err) => err)) {
-        setMessage("Please fix the errors before submitting.");
         toast.error("Please fix the errors before submitting.");
         return;
       }
 
-      // Check if email or ID already exists
       const emailExists = users.some((u) => u.email === formData.email);
       const idExists = users.some((u) => u.id === formData.id);
 
       if (emailExists) {
-        setMessage("This email is already registered.");
         toast.error("This email is already registered.");
         return;
       }
 
       if (idExists) {
-        setMessage("This ID is already registered.");
         toast.error("This ID is already registered.");
         return;
       }
 
-      // Save new user if email and ID are unique
       const newUser = {
         name: formData.name,
         id: formData.id,
@@ -116,7 +109,6 @@ const From = () => {
 
       users.push(newUser);
       localStorage.setItem("users", JSON.stringify(users));
-      setMessage("Registration successful! You can now log in.");
       toast.success("Registration successful! You can now log in.");
       toggleForm();
     }

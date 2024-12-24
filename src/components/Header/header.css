@@ -1,0 +1,28 @@
+/* Welcome Message Styling */
+.cs_nav_welcome {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: auto; /* Pushes it to the right */
+  padding: 0 10px;
+  color: #007bff;
+}
+
+/* Logout Button Styling */
+.logout-button {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: color 0.3s;
+}
+
+.logout-button:hover {
+  color: #ff0000;
+}
+.welcomeLogout{
+    display: flex;
+    align-items: center;
+}
