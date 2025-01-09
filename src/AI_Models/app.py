@@ -11,7 +11,12 @@ calories_model = pickle.load(open("Calories.pkl", "rb"))
 stress_model = pickle.load(open("stress.pkl", "rb"))
 parkinson_model = pickle.load(open("parkinson.pkl", "rb"))
 scaler_model = pickle.load(open("sleep_model.pkl", "rb"))
+sleepStress = pickle.load(open("sleepStress.pkl", "rb"))
 
+
+# stress__model = pickle.load(open("stress_model.pkl", "rb"))
+# sleep__model = pickle.load(open("sleep_model.pkl", "rb"))  # Replace calories_model
+# scaler__model = pickle.load(open("scaler_model.pkl", "rb"))
 
 @app.route("/predictCalories", methods=["POST"])
 def predictCalories():
@@ -160,6 +165,91 @@ def predict_scaler():
 
     except Exception as e:
         return jsonify({"error": f"Internal server error: {str(e)}"}), 500
+
+
+
+
+# @app.route("/sleepStress", methods=["POST"])
+# def predict_sleepStress():
+#     try:
+#         data = request.json
+
+        
+#         age = data.get("age")
+#         heart_rate = data.get("heart_rate")
+#         sleep_duration = data.get("sleep_duration")
+#         systole = data.get("systole")
+#         diastole = data.get("diastole")
+
+#         # Validate inputs
+#         if any(
+#             value is None for value in [age, heart_rate, sleep_duration, systole, diastole]
+#         ):
+#             return jsonify({"error": "Missing or invalid input values"}), 400
+
+#         # Create input DataFrame
+#         input_features = pd.DataFrame(
+#             [[age,heart_rate, sleep_duration, systole,diastole]],
+#             columns=["age", "heart_rate", "sleep_duration","systole","diastole"],
+#         )
+
+#         # Make prediction using the scaler model
+#         predictionSleepStress = sleepStress.predict(input_features)
+
+#         # Ensure response is JSON serializable
+#         return jsonify({"sleepStress": predictionSleepStress.tolist()})
+
+#     except Exception as e:
+#         return jsonify({"error": f"Internal server error: {str(e)}"}), 500
+
+
+
+
+@app.route("/sleepStress", methods=["POST"])
+def predict_sleepStress():
+    try:
+        data = request.json
+
+        # Parse and validate inputs
+        age = data.get("age")
+        heart_rate = data.get("heart_rate")
+        sleep_duration = data.get("sleep_duration")
+        systole = data.get("systole")
+        diastole = data.get("diastole")
+
+        if any(value is None for value in [age, heart_rate, sleep_duration, systole, diastole]):
+            return jsonify({"error": "Missing or invalid input values"}), 400
+
+        try:
+            # Ensure all inputs are numeric
+            age = float(age)
+            heart_rate = float(heart_rate)
+            sleep_duration = float(sleep_duration)
+            systole = float(systole)
+            diastole = float(diastole)
+        except ValueError:
+            return jsonify({"error": "All inputs must be numeric"}), 400
+
+        # Create input array and scale it
+        input_data = np.array([[age, heart_rate, sleep_duration, systole, diastole]])
+        input_data_scaled = sleepStress['scaler'].transform(input_data)
+
+        # Predict sleep and stress
+        predicted_stress = sleepStress['model_stress'].predict(input_data_scaled)
+        predicted_sleep = sleepStress['model_sleep'].predict(input_data_scaled)
+
+        # Round predictions
+        predicted_stress = round(predicted_stress[0])
+        predicted_sleep = round(predicted_sleep[0])
+
+        # Return predictions
+        return jsonify({"predicted_sleep": predicted_sleep, "predicted_stress": predicted_stress})
+
+    except Exception as e:
+        print(f"Error: {str(e)}")  # Log error for debugging
+        return jsonify({"error": f"Internal server error: {str(e)}"}), 500
+
+
 
 
 if __name__ == "__main__":

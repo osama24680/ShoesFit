@@ -30,6 +30,14 @@ const InteractiveForm = () => {
   const [scaler_heart_rate, setScaler_heart_rate] = useState("");
   const [scaler_daily_steps, setScaler_daily_steps] = useState("");
 
+  const [SS_Age, setSS_Age] = useState("");
+  const [SS_HeartRate, setSS_Heart_Rate] = useState("");
+  const [SS_Sleep_Duration, setSS_Sleep_Duration] = useState("");
+  const [SS_Systole, setSS_Systole] = useState("");
+  const [SS_Diastole, setSS_Diastole] = useState("");
+
+
+
   const [prediction, setPrediction] = useState(null);
 
   const SubjnumConstant = 5;
@@ -90,22 +98,33 @@ const InteractiveForm = () => {
       } catch (error) {
         console.error("Prediction Error:", error);
       }
-    } else if (selectedModel === "scaler") {
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:5000/predictScaler",
-          {
-            age: Number(scalerAge),
-            sleep_duration: Number(scaler_sleep_duration),
-            heart_rate: Number(scaler_heart_rate),
-            daily_steps: Number(scaler_daily_steps),
-          }
-        );
-        setPrediction(response.data.scaler);
-        console.log(response.data.scaler[0]);
-      } catch (error) {
-        console.error("Prediction Error:", error);
-      }
+    } else if (selectedModel === "sleepStress") {
+   try {
+     const response = await axios.post("http://127.0.0.1:5000/sleepStress", {
+       age: Number(SS_Age),
+       heart_rate: Number(SS_HeartRate),
+       sleep_duration: Number(SS_Sleep_Duration),
+       systole: Number(SS_Systole),
+       diastole: Number(SS_Diastole),
+     });
+     if (response.data.predicted_sleep && response.data.predicted_stress) {
+       setPrediction({
+         sleep: response.data.predicted_sleep,
+         stress: response.data.predicted_stress,
+       });
+       console.log("Predictions:", response.data);
+     } else {
+       console.error("Invalid response:", response.data);
+     }
+   } catch (error) {
+     if (error.response && error.response.data) {
+       console.error("Prediction Error:", error.response.data.error);
+     } else {
+       console.error("Unknown Error:", error);
+     }
+   }
+
+
     }
   };
 
@@ -285,7 +304,7 @@ const InteractiveForm = () => {
           </div>
         </>
       );
-    } else if (selectedModel === "scaler") {
+    } else if (selectedModel === "sleepStress") {
       return (
         <>
           <div className="form-group">
@@ -294,8 +313,8 @@ const InteractiveForm = () => {
               type="text"
               name="age"
               placeholder="Enter value of age"
-              value={scalerAge}
-              onChange={(e) => setScalerAge(e.target.value)}
+              value={SS_Age}
+              onChange={(e) => setSS_Age(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -304,28 +323,38 @@ const InteractiveForm = () => {
               type="text"
               name="Sleep Duration (H):"
               placeholder="Enter value of Height"
-              value={scaler_sleep_duration}
-              onChange={(e) => setScaler_Sleep_duration(e.target.value)}
+              value={SS_Sleep_Duration}
+              onChange={(e) => setSS_Sleep_Duration(e.target.value)}
             />
           </div>
           <div className="form-group">
             <label>Heart Rate (BPS):</label>
             <input
               type="text"
-              name="Heart Rate (BPS):"
+              name="Heart Rate (BPM):"
               placeholder="Enter value of weight"
-              value={scaler_heart_rate}
-              onChange={(e) => setScaler_heart_rate(e.target.value)}
+              value={SS_HeartRate}
+              onChange={(e) => setSS_Heart_Rate(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label>Step Count:</label>
+            <label>Systole:</label>
             <input
               type="text"
-              name="Step Count:"
-              placeholder="Enter value for C"
-              value={scaler_daily_steps}
-              onChange={(e) => setScaler_daily_steps(e.target.value)}
+              name="Systole"
+              placeholder="Enter value for Systole"
+              value={SS_Systole}
+              onChange={(e) => setSS_Systole(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Diastole:</label>
+            <input
+              type="text"
+              name="Diastole"
+              placeholder="Enter value for Diastole"
+              value={SS_Diastole}
+              onChange={(e) => setSS_Diastole(e.target.value)}
             />
           </div>
         </>
@@ -335,13 +364,6 @@ const InteractiveForm = () => {
 
   return (
     <section className="interactive-form">
-
-
-
-
-
-
-
       <h2>Test Our AI Models</h2>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group select-only">
@@ -351,9 +373,9 @@ const InteractiveForm = () => {
             onChange={(e) => setSelectedModel(e.target.value)}
           >
             <option value="calories">Calories Estimation</option>
-            <option value="stress">Stress Level Prediction</option>
-            <option value="parkinson">parkinson Disease Prediction</option>
-            <option value="scaler">Stress and Sleep Quality</option>
+            {/* <option value="stress">Stress Level Prediction</option> */}
+            {/* <option value="parkinson">parkinson Disease Prediction</option> */}
+            <option value="sleepStress">Stress Level and Sleep Quality</option>
           </select>
         </div>
         {renderInputs()}
@@ -375,10 +397,14 @@ const InteractiveForm = () => {
             {selectedModel === "parkinson" && (
               <p>🧠 Predicted parkinson Disease Risk: {prediction}</p>
             )}
-            {selectedModel === "scaler" && (
+            {selectedModel === "sleepStress" && (
               <>
-                <p>💤Quality of Sleep : {prediction[0][0]}</p>
-                <p>🧘Stress Level: {prediction[0][1]}</p>
+                {/* <p>💤Quality of Sleep :</p> */}
+                <p>💤Quality of Sleep : {prediction?.sleep}</p>
+                <p>🧘Stress Level: {prediction?.stress}</p>
+                {console.log(prediction.sleep)}
+                {/* {console.log("prediction[0][0]", prediction[0]?.[0])} */}
+                {/* {console.log("prediction[0][1]", prediction[0][1])} */}
               </>
             )}
           </div>

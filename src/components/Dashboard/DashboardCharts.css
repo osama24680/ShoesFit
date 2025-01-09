@@ -90,3 +90,65 @@ h3 {
     align-items: center;
   }
 }
+
+
+
+.api-data-container {
+  max-width: 93%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+}
+
+
+h2 {
+  margin-top: 20px;
+  color: #34495e;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.95rem;
+  text-align: left;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slightly bolder shadow for the table */
+}
+
+.styled-table thead tr {
+  background-color: #d7e8fc; 
+  color: #2c3e50; 
+  font-weight: bold;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 14px 16px;
+  border: 1px solid #ccc; /* Slightly darker borders for better definition */
+}
+
+.styled-table tbody tr {
+  background-color: #f9f9f9; /* Light gray for odd rows */
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f3f6f9; /* Slightly darker gray for even rows */
+}
+
+.styled-table tbody tr:hover {
+  background-color: #c8e6c9; /* Slightly heavier light green for hover effect */
+}
+
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  color: #2c3e50; 
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+

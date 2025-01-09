@@ -113,7 +113,7 @@ export default function Home() {
       {/* Appointment Section */}
       <Section topMd={190} topLg={145} topXl={105} id="appointment">
         <AppointmentSection
-          sectionTitle="Appointment"
+          sectionTitle="Appointment (Soon)"
           sectionTitleUp="BOOK AN"
           imgUrl="/images/home_1/appointment.jpeg"
         />

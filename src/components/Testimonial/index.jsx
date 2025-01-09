@@ -12,10 +12,10 @@ export default function Testimonial() {
         <li className={activeTab === 1 ? "active" : ""}>
           <div className="cs_tab_link_in" onClick={() => handleTabClick(1)}>
             <div className="cs_testimonial_1_avatar">
-              <img src="/images/home_1/avatar_1.png" alt="Avatar" />
+              <img src="/images/home_1/amir.jpeg" alt="Avatar" />
               <div className="cs_testimonial_1_avatar_right">
-                <h3 className="cs_fs_24 cs_semibold mb-0">PAULO HUBERT</h3>
-                <p className="cs_heading_color mb-0">New York, USA</p>
+                <h3 className="cs_fs_24 cs_semibold mb-0">Amir Abdullah</h3>
+                <p className="cs_heading_color mb-0">Alexandria, Egypt</p>
               </div>
             </div>
           </div>
@@ -23,10 +23,10 @@ export default function Testimonial() {
         <li className={activeTab === 2 ? "active" : ""}>
           <div className="cs_tab_link_in" onClick={() => handleTabClick(2)}>
             <div className="cs_testimonial_1_avatar">
-              <img src="/images/home_1/avatar_2.png" alt="Avatar" />
+              <img src="/images/home_1/hesham.jpeg" alt="Avatar" />
               <div className="cs_testimonial_1_avatar_right">
-                <h3 className="cs_fs_24 cs_semibold mb-0">LAURENCE VENDETTA</h3>
-                <p className="cs_heading_color mb-0">California, USA</p>
+                <h3 className="cs_fs_24 cs_semibold mb-0">Ahmed Hesham</h3>
+                <p className="cs_heading_color mb-0">Alexandria, Egypt</p>
               </div>
             </div>
           </div>
@@ -34,10 +34,10 @@ export default function Testimonial() {
         <li className={activeTab === 3 ? "active" : ""}>
           <div className="cs_tab_link_in" onClick={() => handleTabClick(3)}>
             <div className="cs_testimonial_1_avatar">
-              <img src="/images/home_1/avatar_3.png" alt="Avatar" />
+              <img src="/images/home_1/eyad.jpeg" alt="Avatar" />
               <div className="cs_testimonial_1_avatar_right">
-                <h3 className="cs_fs_24 cs_semibold mb-0">CASSANDRA RAUL</h3>
-                <p className="cs_heading_color mb-0">Florida</p>
+                <h3 className="cs_fs_24 cs_semibold mb-0">Eyad Yasser</h3>
+                <p className="cs_heading_color mb-0">Alexandria, Egypt</p>
               </div>
             </div>
           </div>
@@ -74,9 +74,9 @@ export default function Testimonial() {
           <div className="cs_testimonial cs_style_1">
             <img src="/images/icons/quote.svg" alt="Icon" />
             <p>
-              I bought the ShoesFit for my husband, who has a history of heart
+              I bought the ShoesFit for my wife, who has a history of heart
               issues. The early detection features have been invaluable! The
-              shoes are stylish, too—he wears them everywhere! Thank you for
+              shoes are stylish, she wears them everywhere! Thank you for
               creating such an innovative product.
             </p>
             <Rating ratingNumber={4.5} />

@@ -10,17 +10,12 @@ const ModelsSection = () => {
       image: "/images/models/Calories_model_BG.jpg",
     },
     {
-      title: "Stress Level Prediction Model",
+      title: "Stress Level and Quality of Sleep Prediction",
       description:
         "Predict stress levels based on heart rate, activity level, and sleep hours.",
       image: "/images/models/Stress_model_BG.jpg",
     },
-    {
-      title: "Parkinson's Disease Prediction Model",
-      description:
-        "Predict Parkinson's disease risk based on movement patterns and tremor analysis.",
-      image: "/images/models/Parkinson_model_BG.jpg",
-    },
+   
   ];
 
   return (

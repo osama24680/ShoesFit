@@ -31,17 +31,14 @@ export const featureListData = [
 ];
 export const faqData = [
   {
-    title: "What services does ShoesFit offer?",
+    title: "What services do ShoesFit offer?",
     content: `ShoesFit offers a range of innovative health monitoring services that include real-time tracking of vital signs such as heart rate, body temperature, and movement. The platform leverages advanced AI technology for preventive care by detecting early signs of conditions like heart diseases and Parkinson's. Through the ShoesFit web and mobile platforms, users gain access to personalized health data and actionable recommendations to support their wellness journey. Additionally, ShoesFit provides rehabilitation support by monitoring recovery progress and tailoring insights to individual health needs.`,
   },
   {
-    title: "How do I schedule an appointment with ShoesFit?",
+    title: "How do I get one?",
     content: `Scheduling an appointment with ShoesFit is quick and straightforward. You can use our web or mobile app to select your preferred date and time, along with the specific service you require. If you need assistance, our support team is always ready to help. You can reach out via email at support@shoesfit.com or call us directly at 01127796848 for further guidance.`,
   },
-  {
-    title: "Do you accept insurance?",
-    content: `Yes, ShoesFit partners with a variety of insurance providers to make health monitoring services accessible and affordable. We work to ensure that as many users as possible can benefit from our technology. For a detailed list of accepted insurance plans or assistance with claims, please get in touch with our support team.`,
-  },
+
   {
     title: "What should I bring to my appointment?",
     content: `To ensure a seamless experience during your appointment, we recommend bringing your ShoesFit smart shoes (if you have purchased them) for calibration and data synchronization. Additionally, bring any relevant medical history documents if applicable, and prepare a list of questions or concerns related to your health monitoring data for discussion with our team.`,

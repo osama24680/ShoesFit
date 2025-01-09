@@ -167,12 +167,28 @@
   }
 }
 
+.teamLayoutImages{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+}
 
+.cs_team{
+  width: 25%;
+}
 
+.cs_team:nth-child(1) {
+  width: 48%;
+}
 
-
-
-
+.cs_team:nth-child(2) {
+  width: 48%;
+}
+.cs_member_name{
+  font-size: 20px;
+  font-weight: bold;
+}
 
 
 

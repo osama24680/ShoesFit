@@ -8,7 +8,6 @@ import DepartmentSectionStyle2 from "../Section/DepartmentSection/DepartmentSect
 import FeaturesSectionStyle2 from "../Section/FeaturesSection/FeaturesSectionStyle2";
 import FunFactSection from "../Section/FunFactSection";
 import TeamSection from "../Section/TeamSection";
-import GallerySection from "../Section/GallerySection";
 import AwardSectionStyle2 from "../Section/AwardSection/AwardSectionStyle2";
 import { pageTitle } from "../../helpers/PageTitle";
 
@@ -19,7 +18,6 @@ export default function About() {
     featureListData,
     funFactData,
     teamData,
-    galleryData,
     awardData,
   } = ctx.AboutData;
 
@@ -40,20 +38,14 @@ export default function About() {
         />
       </Section>
 
-      <Section topMd={175} topLg={125} topXl={85} bottomMd={100} bottomLg={110}>
+      {/* <Section topMd={175} topLg={125} topXl={85} bottomMd={100} bottomLg={110}>
         <FeaturesSectionStyle2
           sectionTitle="Why ShoesFit ?"
           imgUrl="images/about/why_choose_us.png"
           data={featureListData}
         />
-      </Section>
+      </Section> */}
 
-      <Section>
-        <FunFactSection
-          bgUrl="images/about/fun_fact_bg.jpeg"
-          data={funFactData}
-        />
-      </Section>
 
       <Section topMd={190} topLg={145} topXl={105}>
         <TeamSection
@@ -62,14 +54,14 @@ export default function About() {
           data={teamData}
         />
       </Section>
-
+{/* 
       <Section topMd={170} topLg={120} topXl={80}>
         <GallerySection
           sectionTitle="Our Device and <br />Latest Activities"
           sectionTitleUp="HAVE A LOOK AT"
           data={galleryData}
         />
-      </Section>
+      </Section> */}
 
       <Section
         topMd={190}

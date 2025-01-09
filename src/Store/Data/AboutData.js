@@ -7,21 +7,15 @@ export const departmentData = [
     // href: "/departments/department-details",
   },
   {
-    title: "Preventive Care through Wearable Technology",
+    title: "Detect early signs of conditions",
     subTitle:
       "ShoesFit’s smart shoes help detect early signs of conditions like heart disease and Parkinson's, offering preventive care from the convenience of your footwear.",
     iconUrl: "/images/icons/calendar_white.svg",
     // href: "/services/fitness-programs",
   },
+
   {
-    title: "Preventive Health Screenings",
-    subTitle:
-      "Regular health checks and screenings based on ShoesFit’s data to prevent potential issues.",
-    iconUrl: "/images/icons/calendar_white.svg",
-    // href: "/services/health-screenings",
-  },
-  {
-    title: "Rehabilitation Support",
+    title: "Technical Support",
     subTitle:
       "Our technology assists individuals recovering from health challenges by continuously monitoring their progress and adjusting to their needs.",
     iconUrl: "/images/icons/calendar_white.svg",
@@ -32,7 +26,11 @@ export const departmentData = [
     subTitle:
       "ShoesFit supports patients with chronic conditions through continuous health tracking, empowering them to manage their health daily.",
     iconUrl: "/images/icons/calendar_white.svg",
-    // href: "/services/remote-monitoring",
+  },
+  {
+    title: "Affordable, Accessible Healthcare",
+    subTitle:'Our smart shoes bring advanced healthcare technology to a broader audience, making continuous health monitoring accessible and affordable.',
+    iconUrl: "/images/icons/calendar_white.svg",
   },
 ];
 
@@ -86,15 +84,19 @@ export const teamData = [
         icon: "fa6-brands:linkedin-in",
         href: "https://www.linkedin.com/in/omneya-attallah-8729ab129/",
       },
+      { icon: "fa6-brands:facebook-f", href: "" },
     ],
   },
   {
-    imgUrl: "images/about/doctor_2.png",
+    imgUrl: "images/about/shimaa.jpg",
     name: "Dr. Shimaa Farghaly",
     designation: "Doctor of Antenna Engineering",
     description:
       "Expert in wearable antennas for body sensor networks and ultra-wideband antenna design at AAST. Ph.D.",
-    social: [{ icon: "fa6-brands:linkedin-in", href: "" }],
+    social: [
+      { icon: "fa6-brands:linkedin-in", href: "" },
+      { icon: "fa6-brands:facebook-f", href: "" },
+    ],
   },
   {
     imgUrl: "images/about/osama.jpeg",
@@ -103,10 +105,13 @@ export const teamData = [
     description:
       "Lead Engineer – Specializes in software and AI-driven health solutions.",
     social: [
-      { icon: "fa6-brands:github-g", href: "https://github.com/osama24680" },
       {
         icon: "fa6-brands:linkedin-in",
         href: "https://www.linkedin.com/in/osama-megahed-887b76201/",
+      },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/profile.php?id=61570898771821",
       },
     ],
   },
@@ -116,8 +121,11 @@ export const teamData = [
     designation: "EC Engineer",
     description: "Focused on sensor integration and durability for ShoesFit.",
     social: [
-      { icon: "fa6-brands:facebook-f", href: "" },
       { icon: "fa6-brands:linkedin-in", href: "" },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/ahemd.mido.54",
+      },
     ],
   },
   {
@@ -127,19 +135,25 @@ export const teamData = [
     description:
       "Hardware Expert – Manages sensor integration and device reliability",
     social: [
-      { icon: "fa6-brands:facebook-f", href: "" },
       { icon: "fa6-brands:linkedin-in", href: "" },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/profile.php?id=100000960582991",
+      },
     ],
   },
   {
-    imgUrl: "images/about/doctor_2.png",
+    imgUrl: "images/about/saif2.jpeg",
     name: "Saif-Eldin Yasser",
     designation: "EC Engineer",
     description:
       "Biomedical Engineer – Develops and calibrates sensors for accurate health tracking.",
     social: [
-      { icon: "fa6-brands:facebook-f", href: "/team/student-4" },
-      { icon: "fa6-brands:linkedin-in", href: "/team/student-4" },
+      { icon: "fa6-brands:linkedin-in", href: "" },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/saif.yasser.50",
+      },
     ],
   },
 ];
@@ -156,7 +170,7 @@ export const awardData = [
   {
     iconUrl: "/images/about/rally.jpeg",
     title: "Rally AAST-EC",
-    stage: "8th Stage",
+    stage: "7th Stage",
   },
   {
     iconUrl: "/images/about/plan.png",

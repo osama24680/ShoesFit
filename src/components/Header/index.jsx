@@ -64,9 +64,9 @@ export default function Header({ logoSrc, variant }) {
                         <li>
                           <Link to="/blog">Blog</Link>
                         </li>
-                        <li>
+                        {/* <li>
                           <Link to="/gallery">Gallery</Link>
-                        </li>
+                        </li> */}
                         <li>
                           <Link to="/models">Models</Link>
                         </li>
@@ -76,6 +76,7 @@ export default function Header({ logoSrc, variant }) {
                         <li>
                           <Link to="/contact">Contact</Link>
                         </li>
+                        
                         <li class="welcomeLogout">
                           <li>
                             <span>Welcome, {user.name}</span>

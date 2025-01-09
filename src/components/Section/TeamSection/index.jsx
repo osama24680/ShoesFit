@@ -8,11 +8,11 @@ export default function TeamSection({ sectionTitle, sectionTitleUp, data }) {
     <div className="container">
       <SectionHeading title={sectionTitle} titleUp={sectionTitleUp} center />
       <Spacing md="72" lg="50" />
-      <div className="row gy-3">
+      <div className="teamLayoutImages gy-3">
         {data?.map((item, index) => (
-          <div className="col-lg-4" key={index}>
+          // <div className="" key={index}>
             <Team {...item} />
-          </div>
+          // </div>
         ))}
       </div>
     </div>
