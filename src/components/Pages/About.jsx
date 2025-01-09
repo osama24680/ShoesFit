@@ -5,8 +5,7 @@ import BannerSectionStyle3 from "../Section/BannerSection/BannerSectionStyle3";
 import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9";
 import Section from "../Section";
 import DepartmentSectionStyle2 from "../Section/DepartmentSection/DepartmentSectionStyle2";
-import FeaturesSectionStyle2 from "../Section/FeaturesSection/FeaturesSectionStyle2";
-import FunFactSection from "../Section/FunFactSection";
+
 import TeamSection from "../Section/TeamSection";
 import AwardSectionStyle2 from "../Section/AwardSection/AwardSectionStyle2";
 import { pageTitle } from "../../helpers/PageTitle";
@@ -15,8 +14,7 @@ export default function About() {
   const ctx = useContext(shoesStore);
   const {
     departmentData,
-    featureListData,
-    funFactData,
+
     teamData,
     awardData,
   } = ctx.AboutData;
@@ -38,15 +36,6 @@ export default function About() {
         />
       </Section>
 
-      {/* <Section topMd={175} topLg={125} topXl={85} bottomMd={100} bottomLg={110}>
-        <FeaturesSectionStyle2
-          sectionTitle="Why ShoesFit ?"
-          imgUrl="images/about/why_choose_us.png"
-          data={featureListData}
-        />
-      </Section> */}
-
-
       <Section topMd={190} topLg={145} topXl={105}>
         <TeamSection
           sectionTitle="Experts Team"
@@ -54,14 +43,7 @@ export default function About() {
           data={teamData}
         />
       </Section>
-{/* 
-      <Section topMd={170} topLg={120} topXl={80}>
-        <GallerySection
-          sectionTitle="Our Device and <br />Latest Activities"
-          sectionTitleUp="HAVE A LOOK AT"
-          data={galleryData}
-        />
-      </Section> */}
+
 
       <Section
         topMd={190}

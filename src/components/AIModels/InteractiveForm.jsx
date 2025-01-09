@@ -25,10 +25,7 @@ const InteractiveForm = () => {
   const [Speed_01_msec, setSpeed_01_msec] = useState("");
   const [Speed_10, setSpeed_10] = useState("");
 
-  const [scalerAge, setScalerAge] = useState("");
-  const [scaler_sleep_duration, setScaler_Sleep_duration] = useState("");
-  const [scaler_heart_rate, setScaler_heart_rate] = useState("");
-  const [scaler_daily_steps, setScaler_daily_steps] = useState("");
+
 
   const [SS_Age, setSS_Age] = useState("");
   const [SS_HeartRate, setSS_Heart_Rate] = useState("");
